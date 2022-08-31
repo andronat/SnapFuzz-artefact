@@ -212,4 +212,18 @@ cp "dtls-server" "${FINISH_DIR}/dtls-server-asan"
 
 # # cp ".libs/libpthread.so.20.0.28" "${FINISH_DIR}/lib2pthread.so"
 
+<<<<<<< Updated upstream
 echo "Done!"
+=======
+#### Build BFTPD ####
+cd "${BUILD_DIR}"
+
+git clone https://github.com/andronat/bftpd.git bftpd
+cd bftpd
+
+CC="${BUILD_DIR}/aflnet/afl-clang-fast" make clean all
+
+cp "bftpd" "${FINISH_DIR}/bftpd"
+
+echo "Build done!"
+>>>>>>> Stashed changes

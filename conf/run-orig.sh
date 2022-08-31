@@ -92,6 +92,12 @@ ftp-tsan)
   TARGET_CONF="./conf/fftp.conf 2200"
   TARGET_BINS=("./fftp-tsan")
   ;;
+bftpd)
+  PROJECT_NAME="bftpd"
+  AFL_ARGS="-m none -i ./conf/in-ftp -N tcp://127.0.0.1/2200 -x ./conf/bftpd.dict -P FTP -D 10000 -W 15 -q 3 -s 3 -E -R -c ./conf/bftpdclean.sh"
+  TARGET_CONF="./conf/bftpdbase.conf 2200"
+  TARGET_BINS=("./bftpd")
+  ;;
 *)
   echo "Unknown command. Try one of {dicom,dns,dtls,ftp,rtsp}"
   exit 1
